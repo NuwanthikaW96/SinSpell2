@@ -9,15 +9,22 @@ def detector_fun(word):
     print(word)
     file_content = word
    
-    characters = [".",",","%","!","@","&"]
-    test_string = ''.join(i for i in file_content if not i in characters)
+    # # characters = [".",",","%","!","@","&"]
+    # test_string = ''.join(i for i in file_content)
 
 
-    word_list = file_content.split(" ")
+    word_list1 = file_content.split(" ")
+    word_list=[]
+    for i in word_list1:
+        if i[-1]==".":
+            word_list.append(i[:-1])
+            word_list.append(i[-1])
+        else:
+            word_list.append(i)
     print(word_list)
     incorrect_word_list = []
     correct_word_list = []
-    result = file_content
+    
 
     for word in word_list:
         if dictionary.lookup(word):
